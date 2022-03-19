@@ -16,6 +16,11 @@
 		55BC526227C091E6003D8102 /* AR_Hand_InteractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC526127C091E6003D8102 /* AR_Hand_InteractionTests.swift */; };
 		55BC526C27C091E6003D8102 /* AR_Hand_InteractionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC526B27C091E6003D8102 /* AR_Hand_InteractionUITests.swift */; };
 		55BC526E27C091E6003D8102 /* AR_Hand_InteractionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC526D27C091E6003D8102 /* AR_Hand_InteractionUITestsLaunchTests.swift */; };
+		55BC527B27C0932F003D8102 /* StereoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC527A27C0932F003D8102 /* StereoHandler.swift */; };
+		55BC527D27C1CFB5003D8102 /* MultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC527C27C1CFB5003D8102 /* MultipeerSession.swift */; };
+		55BC527F27C1DF35003D8102 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC527E27C1DF35003D8102 /* Utilities.swift */; };
+		55BC528A27C2495D003D8102 /* MessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC528927C2495C003D8102 /* MessageLabel.swift */; };
+		55BC528F27C30956003D8102 /* HandNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BC528E27C30956003D8102 /* HandNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,13 @@
 		55BC526727C091E6003D8102 /* AR Hand InteractionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AR Hand InteractionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BC526B27C091E6003D8102 /* AR_Hand_InteractionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Hand_InteractionUITests.swift; sourceTree = "<group>"; };
 		55BC526D27C091E6003D8102 /* AR_Hand_InteractionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_Hand_InteractionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		55BC527A27C0932F003D8102 /* StereoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StereoHandler.swift; sourceTree = "<group>"; };
+		55BC527C27C1CFB5003D8102 /* MultipeerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerSession.swift; sourceTree = "<group>"; };
+		55BC527E27C1DF35003D8102 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		55BC528227C20BAD003D8102 /* AR-Hand-Interaction-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "AR-Hand-Interaction-Info.plist"; sourceTree = SOURCE_ROOT; };
+		55BC528427C210C1003D8102 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		55BC528927C2495C003D8102 /* MessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLabel.swift; sourceTree = "<group>"; };
+		55BC528E27C30956003D8102 /* HandNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,7 @@
 				55BC526027C091E6003D8102 /* AR Hand InteractionTests */,
 				55BC526A27C091E6003D8102 /* AR Hand InteractionUITests */,
 				55BC524927C091E5003D8102 /* Products */,
+				55BC528327C210C1003D8102 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,12 +111,18 @@
 		55BC524A27C091E5003D8102 /* AR Hand Interaction */ = {
 			isa = PBXGroup;
 			children = (
+				55BC528227C20BAD003D8102 /* AR-Hand-Interaction-Info.plist */,
+				55BC527C27C1CFB5003D8102 /* MultipeerSession.swift */,
 				55BC524B27C091E5003D8102 /* AppDelegate.swift */,
 				55BC524D27C091E5003D8102 /* art.scnassets */,
 				55BC524F27C091E5003D8102 /* ViewController.swift */,
 				55BC525127C091E5003D8102 /* Main.storyboard */,
 				55BC525427C091E6003D8102 /* Assets.xcassets */,
 				55BC525627C091E6003D8102 /* LaunchScreen.storyboard */,
+				55BC527A27C0932F003D8102 /* StereoHandler.swift */,
+				55BC527E27C1DF35003D8102 /* Utilities.swift */,
+				55BC528927C2495C003D8102 /* MessageLabel.swift */,
+				55BC528E27C30956003D8102 /* HandNode.swift */,
 			);
 			path = "AR Hand Interaction";
 			sourceTree = "<group>";
@@ -123,6 +142,14 @@
 				55BC526D27C091E6003D8102 /* AR_Hand_InteractionUITestsLaunchTests.swift */,
 			);
 			path = "AR Hand InteractionUITests";
+			sourceTree = "<group>";
+		};
+		55BC528327C210C1003D8102 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55BC528427C210C1003D8102 /* CoreTelephony.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BC527D27C1CFB5003D8102 /* MultipeerSession.swift in Sources */,
 				55BC525027C091E5003D8102 /* ViewController.swift in Sources */,
+				55BC528F27C30956003D8102 /* HandNode.swift in Sources */,
+				55BC527B27C0932F003D8102 /* StereoHandler.swift in Sources */,
+				55BC527F27C1DF35003D8102 /* Utilities.swift in Sources */,
+				55BC528A27C2495D003D8102 /* MessageLabel.swift in Sources */,
 				55BC524C27C091E5003D8102 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,14 +471,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 74539PZGNK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_FILE = "AR-Hand-Interaction-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This application uses the camera for AR and Vision";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Use Local Networking to Connect to Devices";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -469,14 +505,18 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 74539PZGNK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_FILE = "AR-Hand-Interaction-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This application uses the camera for AR and Vision";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Use Local Networking to Connect to Devices";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

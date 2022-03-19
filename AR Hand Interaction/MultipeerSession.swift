@@ -11,7 +11,7 @@ import MultipeerConnectivity
 
 /// - Tag: MultipeerSession
 class MultipeerSession: NSObject {
-    static let serviceType = "ar-collab"
+    static let serviceType = "ar-hand"
     
     private let myPeerID = MCPeerID(displayName: UIDevice.current.name)
     private var session: MCSession!
@@ -35,7 +35,7 @@ class MultipeerSession: NSObject {
         
         super.init()
         
-        session = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .required)
+        session = MCSession(peer: myPeerID, securityIdentity: nil, encryptionPreference: .none)
         session.delegate = self
         
         serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerID, discoveryInfo: nil, serviceType: MultipeerSession.serviceType)
@@ -75,6 +75,10 @@ extension MultipeerSession: MCSessionDelegate {
             peerLeftHandler(peerID)
         }
     }
+    
+//    func session(_ session: MCSession, didReceiveCertificate certificate: [Any]?, fromPeer peerID: MCPeerID, certificateHandler: @escaping (Bool) -> Void) {
+//        certificateHandler(true)
+//    }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         receivedDataHandler(data, peerID)

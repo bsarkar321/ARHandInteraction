@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ARKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        guard ARWorldTrackingConfiguration.isSupported else {
+            fatalError("""
+                ARKit is not available on this device. For apps that require ARKit
+                for core functionality, use the `arkit` key in the key in the
+                `UIRequiredDeviceCapabilities` section of the Info.plist to prevent
+                the app from installing. (If the app can't be installed, this error
+                can't be triggered in a production scenario.)
+                In apps where AR is an additive feature, use `isSupported` to
+                determine whether to show UI for launching AR experiences.
+            """) // For details, see https://developer.apple.com/documentation/arkit
+        }
+
         return true
     }
 
@@ -38,3 +51,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+enum AppError: Error {
+    case captureSessionSetup(reason: String)
+    case visionError(error: Error)
+    case otherError(error: Error)
+    
+    static func display(_ error: Error, inViewController viewController: UIViewController) {
+        if let appError = error as? AppError {
+            appError.displayInViewController(viewController)
+        } else {
+            AppError.otherError(error: error).displayInViewController(viewController)
+        }
+    }
+    
+    func displayInViewController(_ viewController: UIViewController) {
+        let title: String?
+        let message: String?
+        switch self {
+        case .captureSessionSetup(let reason):
+            title = "AVSession Setup Error"
+            message = reason
+        case .visionError(let error):
+            title = "Vision Error"
+            message = error.localizedDescription
+        case .otherError(let error):
+            title = "Error"
+            message = error.localizedDescription
+        }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
+}
